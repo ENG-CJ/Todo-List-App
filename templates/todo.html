@@ -1,0 +1,87 @@
+
+{% extends 'base.html' %}
+
+{%  block head%}
+<title>TODO LIST APP</title>
+{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-light bg-primary justify-content-between">
+  <a class="navbar-brand" style="color: white;">ENG-CJ (Flask Project)</a>
+  <a class="navbar-brand" style="color: white;" href="https://www.github.com/ENG-CJ">MyGithub</a>
+
+  <form class="form-inline" action="/" method="POST">
+    <input class="form-control mr-sm-2" type="search" name="content" id="content" placeholder="Enter Task" aria-label="Search">
+    <input class="btn btn-outline-success bg-dark my-2 my-sm-0" style="color: white;" type="submit" value="Add Task">
+  </form>
+</nav>
+<main role="main" class="container">
+
+  <div class="starter-template "  style="margin-top: 4%;">
+    <h1>TODO LIST APP </h1>
+    <p class="lead">Halkaan Ku Qoro waxa aad maanta.<br> Qaban Lahayd 'Feel Free'.</p>
+  </div>
+
+</main>
+
+
+
+<!--<form action="/" method="POST" xmlns="http://www.w3.org/1999/html">-->
+<!--   <div class="input-group mb-3">-->
+<!--      <div class="input-group-prepend">-->
+<!--        <input type="submit" value="Add Task" class="btn btn-outline-secondary" > </input>-->
+<!--      </div>-->
+<!--       <input type="text" class="form-control" name="content" id="content" placeholder="Enter Task" aria-label="" aria-describedby="basic-addon1">-->
+<!--   </div>-->
+<!--</form>-->
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+        <th>TASK ID #</th>
+        <th>TASK NAME</th>
+        <th>DATE CREATED</th>
+        <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.content }}</td>
+        <td>{{ task.date_created }}</td>
+        <td> <a class="btn btn-danger" href="/delete/{{ task.id }}">Delete</a> <a
+                class="btn btn-dark" href="/update/{{ task.id }}"  style="margin-left: 0.5rem">Update</a> </td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>Tasks</th>-->
+<!--        <th>Created</th>-->
+<!--        <th>Actions</th>-->
+<!--    </tr>-->
+<!--    {% for staff in tasks %}-->
+<!--        <tr>-->
+<!--            <th>{{ staff.content }}</th>-->
+<!--            <th>{{ staff.date_created }}</th>-->
+<!--            <th>-->
+<!--                <a href="/delete/{{ staff.id }}">Delete</a>-->
+<!--                <a href="/update/{{ staff.id }}">Update</a>-->
+<!--            </th>-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+
+<!--</table>-->
+<!--<form action="/" method="POST">-->
+<!--    <input type="text" name="content" id="content" placeholder="Enter Task">-->
+<!--    <input type="submit">-->
+<!--</form>-->
+
+{% endblock %}

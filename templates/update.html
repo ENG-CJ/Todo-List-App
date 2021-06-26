@@ -1,0 +1,43 @@
+<!--{% extends 'base.html' %}-->
+
+
+{% block head %}
+<title>Update</title>
+{% endblock %}
+
+
+{% block body %}
+<nav class="navbar navbar-light bg-primary justify-content-between">
+  <a class="navbar-brand" style="color: white;">ENG-CJ (Flask Project)</a>
+  <a class="navbar-brand" style="color: white;" href="https://www.github.com/ENG-CJ">MyGithub</a>
+
+
+</nav>
+<main role="main" class="container">
+
+  <div class="starter-template "  style="margin-top: 4%;">
+    <h1>UPDATE YOUR TODO LIST</h1>
+    <p class="lead">Update Your Content.</p>
+  </div>
+
+</main>
+
+<form class="form-inline" action="/update/{{ staff.id }}" method="POST" style="margin-left: 13%;
+ font-size: 30px;">
+    <input class="form-control mr-sm-2" type="search" name="content" id="content" placeholder="Enter Task"
+           value="{{ staff.content }}" aria-label="Search">
+    <input class="btn btn-outline-success bg-success my-2 my-sm-0" style="color: white;" type="submit" value="Update">
+  </form>
+
+<main role="main" class="container">
+
+  <div class="starter-template "  style="margin-top: 4%;">
+    <p class="lead">Powered By: ENG-CJ.</p>
+  </div>
+
+</main>
+<!--<form  class="form-control" action="/update/{{ staff.id }}" method="POST">-->
+<!--    <input type="text" class="form" name="content" id="content"  value="{{ staff.content }}" placeholder="Enter Task">-->
+<!--    <input type="submit" class="btn btn-danger" value="UPDATE">-->
+<!--</form>-->
+{% endblock %}
